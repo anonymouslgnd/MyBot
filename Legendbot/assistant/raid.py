@@ -9,7 +9,7 @@ NUMBER = ["0", "1"]
 
 que = {}
 
-RAID = [
+MADHERCHOD = [
     "MADARCHOD TERI MAA KI CHUT ME GHUTKA KHAAKE THOOK DUNGA 🤣🤣",
     "TERE BEHEN K CHUT ME CHAKU DAAL KAR CHUT KA KHOON KAR DUGA",
     "TERI VAHEEN NHI HAI KYA? 9 MAHINE RUK SAGI VAHEEN DETA HU 🤣🤣🤩",
@@ -325,9 +325,9 @@ RAID = [
 ]
 
 
-@tgbot.on(events.NewMessage(pattern="/raid", func=lambda e: e.sender_id == bot.uid))
+@tgbot.on(events.NewMessage(pattern="/MADHERCHOD", func=lambda e: e.sender_id == bot.uid))
 async def spam(e):
-    usage = "**CMD** : /raid <value> <text> <reply to anyone>"
+    usage = "**CMD** : /MADHERCHOD <value> <text> <reply to anyone>"
     if Config.SPAM == "ON":
         if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
             return await e.reply(usage, parse_mode=None, link_preview=None)
@@ -336,7 +336,7 @@ async def spam(e):
             message = str(lol[1])
             counter = int(lol[0])
             for _ in range(counter):
-                reply = random.choice(RAID)
+                reply = random.choice(MADARCHOD)
                 caption = f"{message}"
                 async with e.client.action(e.chat_id, "typing"):
                     await e.client.send_message(e.chat_id, caption)
@@ -349,7 +349,7 @@ async def spam(e):
             counter = int(lol[0])
             username = f"[{c}](tg://user?id={g})"
             for _ in range(counter):
-                reply = random.choice(RAID)
+                reply = random.choice(MADARCHOD)
                 caption = f"{username} {reply}"
                 async with e.client.action(e.chat_id, "typing"):
                     await e.client.send_message(e.chat_id, caption)
@@ -359,7 +359,7 @@ async def spam(e):
 
 
 @tgbot.on(events.NewMessage(incoming=True))
-async def raidgoing(event):
+async def MADHERCHODgoing(event):
     global que
     queue = que.get(event.sender_id)
     if not queue:
@@ -375,12 +375,12 @@ async def raidgoing(event):
 
 
 @tgbot.on(
-    events.NewMessage(pattern="/replyraid", func=lambda x: x.sender_id == bot.uid)
+    events.NewMessage(pattern="/RANDI", func=lambda x: x.sender_id == bot.uid)
 )
-async def replyraid(e):
+async def RANDI(e):
     global que
     if Config.SPAM == "ON":
-        usage = "/replyraid <reply to anyone>"
+        usage = "/RANDI <reply to anyone>"
         if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
             return await e.reply(usage, parse_mode=None, link_preview=None)
         lol = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
@@ -399,12 +399,12 @@ async def replyraid(e):
 
 
 @tgbot.on(
-    events.NewMessage(pattern="/dreplyraid", func=lambda x: x.sender_id == bot.uid)
+    events.NewMessage(pattern="/dRANDI", func=lambda x: x.sender_id == bot.uid)
 )
-async def dreplyraid(e):
+async def dRANDI(e):
     global que
     if Config.SPAM == "ON":
-        usage = "/dreplyraid <reply to person> "
+        usage = "/dRANDI <reply to person> "
         if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
             return await e.reply(usage, parse_mode=None, link_preview=None)
         lol = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
